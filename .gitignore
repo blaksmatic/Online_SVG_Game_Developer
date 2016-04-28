@@ -1,0 +1,11 @@
+client/.idea
+client/.sass-cache
+client/node_modules
+client/public/ducksboard
+client/pubilc/foundation6_lib
+client/public/lib
+server/.*
+server/node_modules
+*.pages
+*.txt
+*.pdf

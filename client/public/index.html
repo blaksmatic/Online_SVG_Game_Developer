@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>AVG Editor Online</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="./lib/animate.css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="./lib/animo.js/animate-animo.min.css" rel="stylesheet" type="text/css">
+
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers.js"></script>
+    <script src="./js/services.js"></script>
+</head>
+
+<body ng-app="mainApp" ng-controller="mainController">
+<h2 class="text-center" style="margin-bottom: 5%">AVG Game Maker Online</h2>
+
+
+<div class="row">
+    <div class="left_side column small-8">
+        <div class="preview_image" ng-style="{'background-image':'url('+background_img+')'}"
+             ng-click="continue_conv()">
+
+            <div class="game_status" ng-style="{visibility: status_show && 'visible' || 'hidden'}">
+                <h6>Scene ID: {{scene_id}}</h6>
+                <h6>Scene Name: {{name}}</h6>
+                <h6>Scene Choice Name: {{choice_name}}</h6>
+                <h6>Next Scene ID: {{next}}</h6>
+                <h6>Choices ID: {{choices.toString().split(",")}}</h6>
+                <h6>Conversations in this scene:</h6>
+                <p>{{conversation}}</p>
+            </div>
+            <div class="character_bar">
+                <img ng-src="{{character_img}}" id="characterID">
+            </div>
+            <div class="choices">
+                <div ng-repeat="choice in choices_edited"
+                     ng-style="{visibility: show_choices && 'visible' || 'hidden'}">
+                    <button class="button" ng-click="goto_choice(choice)">{{choice.choice_name}}
+                    </button>
+                </div>
+            </div>
+            <div class="conversation_bar">
+                <p class="cov" id="conversationID">{{conversation_show}}</p>
+            </div>
+        </div>
+        <div class="conversation_editor" ng-style="{visibility: show_panel && 'visible' || 'hidden'}">
+            <label><h5>Dialog</h5>
+            <textarea class="conversation_area" ng-model="conversation">
+            </textarea>
+            </label>
+        </div>
+        <button class="button success" ng-click="submit_conv();create_scene()"
+                ng-style="{visibility: show_panel && 'visible' || 'hidden'}">Submit Changes
+        </button>
+        <button class="button" ng-click="goto_next_scene()"
+                ng-style="{visibility: show_panel && 'visible' || 'hidden'}">Next Scene
+        </button>
+    </div>
+    <div class="right_side column small-4" ng-style="{visibility: show_panel && 'visible' || 'hidden'}">
+        <h3 class="text-center">Global Editor</h3>
+        <table>
+            <thead>
+            <tr>
+                <th width="50">Attributes Name</th>
+                <th width="50">Set Value To</th>
+            </tr>
+            <tr>
+                <td>Session ID</td>
+                <td><input type="text" class="input_area_small" ng-model="session"></td>
+            </tr>
+            </thead>
+        </table>
+        <button class="button small success" ng-click="get_all_from_user()"> Retrieve Data</button>
+
+
+        <h3 class="text-center">Scene Editor</h3>
+        <table>
+            <thead>
+            <tr>
+                <th width="50">Attributes</th>
+                <th width="50">Set Value To</th>
+            </tr>
+            <tr>
+                <td>Scene ID</td>
+                <td><input type="text" class="input_area_small" ng-model="scene_id"></td>
+            </tr>
+            <tr>
+                <td> Scene Name</td>
+                <td><input type="text" class="input_area_small" ng-model="name"></td>
+            </tr>
+            <tr>
+                <td> Scene Choice Name</td>
+                <td><input type="text" class="input_area_small" ng-model="choice_name"></td>
+            </tr>
+            <tr>
+                <td> Next Scene ID</td>
+                <td><input type="text" class="input_area_small" ng-model="next"></td>
+            </tr>
+            <tr>
+                <td> Choices ID (If has)</td>
+                <td><input type="text" class="input_area_small" ng-model="choices"></td>
+            </tr>
+            <tr>
+                <td> Background img url</td>
+                <td><input type="text" class="input_area_small" ng-model="background_img"></td>
+            </tr>
+            <tr>
+                <td> Character img url</td>
+                <td><input type="text" class="input_area_small" ng-model="character_img"></td>
+            </tr>
+
+            </thead>
+        </table>
+        <button class="button small success" ng-click="create_scene()"> Save Scene</button>
+        <button class="button small success" ng-click="drag_reset()" ng-show="false">Drag reset</button>
+        <button class="button small" ng-click="toggle_status()">Toggle Status Panel</button>
+        <button class="secondary button small" ng-click="delete_scene()">Del</button>
+
+    </div>
+    <button class="success button small" ng-click="deploy()">Deploy</button>
+</div>
+
+<div class="row widget_container" ng-show="false">
+    <h5>Scene Handling Area</h5>
+    <div ng-repeat="scene in all_scenes">
+        <div class="draggable drag_item text-center" ng-dblclick="set_current(scene)">{{scene.scene_id}}
+            <p>{{scene.next}}</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div id="visualize" ng-style="{visibility: show_panel && 'visible' || 'hidden'}"></div>
+</div>
+
+<!-- Scripts -->
+<script src="./lib/jquery-2.1.3.min/index.js"></script>
+<script src="./foundation6_lib/js/foundation.min.js"></script>
+<script src="./js/script.js"></script>
+<script src="./lib/angular-route/angular-route.js"></script>
+<script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.js"></script>
+<script src="./lib/animo.js/animo.js"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+    $(document).foundation();
+</script>
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+.preview_image {
+  position: relative;
+  width: 740px;
+  height: 600px;
+  background-repeat: no-repeat;
+  max-height: 100%;
+  max-width: 100%;
+  border-top: 2px solid lightskyblue;
+  border-bottom: 2px solid lightskyblue;
+  z-index: 80;
+}
+
+.conversation_area {
+  padding-bottom: 100px;
+}
+
+#conversationID {
+  padding-left: 20px;
+  font-family: "Helvetica Neue";
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.widget_container {
+  padding: 10px;
+  border: 2px solid lightskyblue;
+  height: 500px;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.draggable {
+  width: 70px;
+  height: 70px;
+  background: lightskyblue;
+  border-radius: 10px;
+}
+
+.draggable.is-pointer-down {
+  background: orange;
+}
+
+.draggable.is-dragging {
+  opacity: 0.7;
+}
+
+.draggable:hover {
+  background: orange;
+  cursor: move;
+}
+
+.input_area_small {
+  height: 25px;
+  padding-top: 3px;
+  margin-bottom: 0;
+}
+
+.drag_item {
+  font-family: "Oswald Regular";
+  color: gray;
+  font-size: 20px;
+}
+
+.conversation_bar {
+  position: absolute;
+  margin: auto auto;
+  bottom: 10px;
+  height: 200px;
+  width: 95%;
+  max-width: 760px;
+  border: 2px solid lightskyblue;
+  z-index: 100;
+}
+
+.conv {
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+}
+
+.choices {
+  position: absolute;
+  right: 10px;
+  .button {
+    @extend button;
+    background-color: transparent;
+    border: solid 2px lightgrey;
+    border-radius: 13px;
+    font-family: Roboto;
+    font-size: 25px;
+    padding: 4px;
+  }
+}
+
+.character_bar {
+  position: absolute;
+
+  width: 200px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+svg {
+  border: 1px solid silver;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.link {
+  fill: none;
+  stroke: lightgray;
+  stroke-width: 1.5px;
+}
+
+#visualize {
+  margin: auto auto;
+}
