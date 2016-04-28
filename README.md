@@ -11,19 +11,19 @@ Some specifications:
 5. You can add character motions, using the grammar: <conv!******>, **** can be any animate.css examples, such as tada
 
 The Game preview page and overview:
-![Alt text](/screenshot/game_editor1.png_?raw=true "Optional Title")
+![Alt text](/screenshot/game_editor1.png?raw=true "Overview")
 
 The Game Dialog page:
-![Alt text](/screenshot/game_editor2.png_?raw=true "Optional Title")
+![Alt text](/screenshot/game_editor2.png?raw=true "Dialog")
 
 The Game status: (blank)
-![Alt text](/screenshot/game_editor3.png_?raw=true "Optional Title")
+![Alt text](/screenshot/game_editor3.png?raw=true "Status")
 
 Editors: (blank)
-![Alt text](/screenshot/game_editor4.png_?raw=true "Optional Title")
+![Alt text](/screenshot/game_editor4.png?raw=true "Editors")
 
 Editor Example:
-![Alt text](/screenshot/game_editor7.png_?raw=true "Optional Title")
+![Alt text](/screenshot/game_editor7.png?raw=true "Editor example")
 
 Node System: (Story telling lines)
-![Alt text](/screenshot/game_editor6.png_?raw=true "Optional Title")
+![Alt text](/screenshot/game_editor6.png?raw=true "Node system")
